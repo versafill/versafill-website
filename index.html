@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VersaFill</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e9e6e6;
+
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url('https://static.wixstatic.com/media/ea26fd_cb55ca673b7a44dd8a0e3a155ae2ab08~mv2_d_3840_1780_s_2.png/v1/fill/w_1506,h_919,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea26fd_cb55ca673b7a44dd8a0e3a155ae2ab08~mv2_d_3840_1780_s_2.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #036d3b;
+            padding: 15px 30px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 50px;
+            text-align: center;
+            background-color: rgba(250, 250, 250, 0.89);
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+       
+#details {
+    display: flex; /* Center the green background */
+    justify-content: center; /* Center the content */
+    height: 400px; /* Fixed height */
+    padding: 0; /* Remove padding */
+    background-color: #f4f4f4; /* Light background for outer space */
+}
+.details-container {
+    width: 80%; /* Green section in the center */
+    background-color: rgb(3, 97, 42); /* Green background */
+    height: 100%; /* Fill the full height */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Three equal grids */
+    align-items: center; /* Center content vertically */
+    text-align: center; /* Center text */
+    color: white; /* White text */
+    font-family: 'Calibri', sans-serif; /* Font */
+}
+
+.details-container .box {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align to the top */
+    align-items: center; /* Center horizontally */
+}
+
+.details-container h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    height: 50px; /* Ensure all headings have same height */
+    display: flex;
+    align-items: center; /* Align text inside the heading */
+}
+
+#about {
+    display: grid; /* Enable grid layout */
+    grid-template-columns: 1.2fr 2.8fr; /* Two equal columns */
+    grid-gap: 0px; /* Space between columns */
+    align-items: center; /* Vertically center content */
+    height: 400px; /* Adjust the height of the section */
+    padding: 0; /* Remove default padding */
+}
+
+#about .image {
+    background-image: url('https://static.wixstatic.com/media/ea26fd_431cbb67e404445abaecaf864e89f84d~mv2_d_3198_3997_s_4_2.jpg/v1/fill/w_392,h_768,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea26fd_431cbb67e404445abaecaf864e89f84d~mv2_d_3198_3997_s_4_2.jpg');
+    background-size: cover; /* Make sure the image covers the grid cell */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    height: 100%; /* Make the image fill the column */
+     /* Optional: Add rounded corners to the image */
+}
+
+#about .content {
+    background-color: rgba(0, 0, 0, 0.7); /* Black background with transparency */
+    color: white; /* Set text color to white for contrast */
+    padding: 40px; /* Add padding around the text */
+    display: flex;
+    justify-content: center; /* Center the text horizontally */
+    align-items: top; /* Center the text vertically */
+    text-align: left; /* Left-align the text */
+ /* Optional: Add rounded corners to the content box */
+    font-family: 'Calibri', sans-serif; /* Use Calibri font */
+    height: 80%; /* Make the image fill the column */
+}
+
+#about h2, #about p {
+    margin: 0; /* Remove any default margins */
+}
+#home h2 {
+    font-size: 40px; /* Increase the font size */
+    font-weight: bold; /* Make it bold */
+    text-transform: uppercase; /* Optional: Convert text to uppercase */
+    margin-bottom: 10px; /* Add some space below the heading */
+}
+
+
+        
+        
+
+        /* Contact Form */
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+        }
+        
+
+        input, textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #047425;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #003366;
+        }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("#contactForm");
+            
+            form.addEventListener("submit", async function(event) {
+                event.preventDefault(); // Prevent default form submission
+                
+                const formData = new FormData(form);
+                
+                // Sending form data to Formspree
+                const response = await fetch("https://formspree.io/f/mkgovrgz", {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                });
+
+                if (response.ok) {
+                    alert("Thank you! Your message has been sent.");
+                    form.reset(); // Clear form fields after submission
+                } else {
+                    alert("Oops! Something went wrong. Please try again.");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Alert button functionality
+            function showAlert() {
+                alert("VersaFill provide high-quality fuel for your vehicles with hassle-free booking and doorstep delivery.");
+            }
+
+            // Attach event listener to the button
+            const learnMoreButton = document.querySelector("button");
+            if (learnMoreButton) {
+                learnMoreButton.addEventListener("click", showAlert);
+            }
+
+            // Form submission handling
+            const contactForm = document.querySelector("form");
+            if (contactForm) {
+                contactForm.addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    alert("Thank you for contacting us! We will get back to you soon.");
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">VersaFill</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+
+    <section id="home" class="section">
+        <div class="overlay">
+            <h2>
+               
+                Order Fuel Online and Get it Delivered to Your Tank
+                .</h2>
+            <p>VersaFill provide high-quality fuel for your vehicles with hassle-free booking and doorstep delivery</p>
+            <button>Learn More</button>
+        </div>
+    </section>
+
+    <section id="details">
+        <div class="details-container">
+            <div class="box">
+                <h2>Customer Service</h2>
+                <p>Our dedicated customer service team is always available to assist you with any questions or concerns you may have. We strive to provide the highest level of customer satisfaction.</p>
+            </div>
+            <div class="box">
+                <h2>fuel Products</h2>
+                <p>We offer a wide range of fuel products to meet the needs of our customers. From gasoline to diesel, we have everything you need to keep your vehicles running smoothly.</p>
+            </div>
+            <div class="box">
+                <h2>Delivery Services</h2>
+                <p>At YourTankOurTask, we understand the importance of fast and reliable fuel delivery. That's why we offer tank side delivery services to make sure you never run out of fuel.</p>
+            </div>
+        </div>
+    </section>
+    
+    
+    <<section id="about">
+        <div class="image"></div> <!-- This div will hold the image -->
+        <div class="content">
+            <div>
+                <h2>About Us</h2>
+                <p>VersaFill is a leading force in the fuel industry, dedicated to delivering top-tier fuel solutions with efficiency and convenience. We offer a seamless experience through fleet fueling, on-demand fuel delivery, and detailing, ensuring reliable and high-quality service for businesses and individuals alike. Our anytime, anywhere delivery model guarantees uninterrupted access to fuel, while our commitment to innovation and expansion allows us to continuously grow our service areas, fleet, and technology. At VersaFill, we prioritize customer satisfaction, reliability, and excellence, striving to be your trusted fuel partner for all your fueling needs.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="section">
+        <h2>Our Services</h2>
+        <p>We provide on-demand fuel delivery including gasoline and diesel.</p>
+    </section>
+    
+    <section id="contact" class="section">
+        <h2>Order Your Fuel Now!</h2>
+        <p>Give us a call at <strong>123-456-7890</strong> or leave a message:</p>
+        
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 VersaFill. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
