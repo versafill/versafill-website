@@ -11,11 +11,6 @@
             margin: 0;
             padding: 0;
             background-color: #e9e6e6;
-
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
             background-image: url('https://static.wixstatic.com/media/ea26fd_cb55ca673b7a44dd8a0e3a155ae2ab08~mv2_d_3840_1780_s_2.png/v1/fill/w_1506,h_919,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea26fd_cb55ca673b7a44dd8a0e3a155ae2ab08~mv2_d_3840_1780_s_2.png');
             background-size: cover;
             background-position: center;
@@ -49,6 +44,21 @@
             font-size: 18px;
         }
 
+        @media screen and (max-width: 768px) {
+            /* Adjust Header for mobile */
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            /* Adjust Layout for About Section */
+        }
+
         /* Sections */
         .section {
             padding: 50px;
@@ -58,86 +68,84 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-       
-#details {
-    display: flex; /* Center the green background */
-    justify-content: center; /* Center the content */
-    height: 400px; /* Fixed height */
-    padding: 0; /* Remove padding */
-    background-color: #f4f4f4; /* Light background for outer space */
-}
-.details-container {
-    width: 80%; /* Green section in the center */
-    background-color: rgb(3, 97, 42); /* Green background */
-    height: 100%; /* Fill the full height */
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Three equal grids */
-    align-items: center; /* Center content vertically */
-    text-align: center; /* Center text */
-    color: white; /* White text */
-    font-family: 'Calibri', sans-serif; /* Font */
-}
 
-.details-container .box {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align to the top */
-    align-items: center; /* Center horizontally */
-}
+        #details {
+            display: flex; /* Center the green background */
+            justify-content: center; /* Center the content */
+            height: 400px; /* Fixed height */
+            padding: 0; /* Remove padding */
+            background-color: #f4f4f4; /* Light background for outer space */
+        }
 
-.details-container h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-    height: 50px; /* Ensure all headings have same height */
-    display: flex;
-    align-items: center; /* Align text inside the heading */
-}
+        .details-container {
+            width: 80%; /* Green section in the center */
+            background-color: rgb(3, 97, 42); /* Green background */
+            height: 100%; /* Fill the full height */
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; /* Three equal grids */
+            align-items: center; /* Center content vertically */
+            text-align: center; /* Center text */
+            color: white; /* White text */
+            font-family: 'Calibri', sans-serif; /* Font */
+        }
 
-#about {
-    display: grid; /* Enable grid layout */
-    grid-template-columns: 1.2fr 2.8fr; /* Two equal columns */
-    grid-gap: 0px; /* Space between columns */
-    align-items: center; /* Vertically center content */
-    height: 400px; /* Adjust the height of the section */
-    padding: 0; /* Remove default padding */
-}
+        .details-container .box {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align to the top */
+            align-items: center; /* Center horizontally */
+        }
 
-#about .image {
-    background-image: url('https://static.wixstatic.com/media/ea26fd_431cbb67e404445abaecaf864e89f84d~mv2_d_3198_3997_s_4_2.jpg/v1/fill/w_392,h_768,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea26fd_431cbb67e404445abaecaf864e89f84d~mv2_d_3198_3997_s_4_2.jpg');
-    background-size: cover; /* Make sure the image covers the grid cell */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent repeating the image */
-    height: 100%; /* Make the image fill the column */
-     /* Optional: Add rounded corners to the image */
-}
+        .details-container h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            height: 50px; /* Ensure all headings have same height */
+            display: flex;
+            align-items: center; /* Align text inside the heading */
+        }
 
-#about .content {
-    background-color: rgba(0, 0, 0, 0.7); /* Black background with transparency */
-    color: white; /* Set text color to white for contrast */
-    padding: 40px; /* Add padding around the text */
-    display: flex;
-    justify-content: center; /* Center the text horizontally */
-    align-items: top; /* Center the text vertically */
-    text-align: left; /* Left-align the text */
- /* Optional: Add rounded corners to the content box */
-    font-family: 'Calibri', sans-serif; /* Use Calibri font */
-    height: 80%; /* Make the image fill the column */
-}
+        #about {
+            display: grid; /* Enable grid layout */
+            grid-template-columns: 1.2fr 2.8fr; /* Two equal columns */
+            grid-gap: 0px; /* Space between columns */
+            align-items: center; /* Vertically center content */
+            height: 400px; /* Adjust the height of the section */
+            padding: 0; /* Remove default padding */
+        }
 
-#about h2, #about p {
-    margin: 0; /* Remove any default margins */
-}
-#home h2 {
-    font-size: 40px; /* Increase the font size */
-    font-weight: bold; /* Make it bold */
-    text-transform: uppercase; /* Optional: Convert text to uppercase */
-    margin-bottom: 10px; /* Add some space below the heading */
-}
+        #about .image {
+            background-image: url('https://static.wixstatic.com/media/ea26fd_431cbb67e404445abaecaf864e89f84d~mv2_d_3198_3997_s_4_2.jpg/v1/fill/w_392,h_768,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea26fd_431cbb67e404445abaecaf864e89f84d~mv2_d_3198_3997_s_4_2.jpg');
+            background-size: cover; /* Make sure the image covers the grid cell */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent repeating the image */
+            height: 100%; /* Make the image fill the column */
+            /* Optional: Add rounded corners to the image */
+        }
 
+        #about .content {
+            background-color: rgba(0, 0, 0, 0.7); /* Black background with transparency */
+            color: white; /* Set text color to white for contrast */
+            padding: 40px; /* Add padding around the text */
+            display: flex;
+            justify-content: center; /* Center the text horizontally */
+            align-items: top; /* Center the text vertically */
+            text-align: left; /* Left-align the text */
+            /* Optional: Add rounded corners to the content box */
+            font-family: 'Calibri', sans-serif; /* Use Calibri font */
+            height: 80%; /* Make the image fill the column */
+        }
 
-        
-        
+        #about h2, #about p {
+            margin: 0; /* Remove any default margins */
+        }
+
+        #home h2 {
+            font-size: 40px; /* Increase the font size */
+            font-weight: bold; /* Make it bold */
+            text-transform: uppercase; /* Optional: Convert text to uppercase */
+            margin-bottom: 10px; /* Add some space below the heading */
+        }
 
         /* Contact Form */
         form {
@@ -146,7 +154,6 @@
             max-width: 400px;
             margin: auto;
         }
-        
 
         input, textarea {
             padding: 10px;
@@ -195,11 +202,7 @@
                 }
             });
         });
-    </script>
-</head>
-<body>
-    </style>
-    <script>
+
         document.addEventListener("DOMContentLoaded", function() {
             // Alert button functionality
             function showAlert() {
@@ -236,15 +239,12 @@
             </ul>
         </nav>
     </header>
-    
-    
 
     <section id="home" class="section">
         <div class="overlay">
             <h2>
-               
                 Order Fuel Online and Get it Delivered to Your Tank
-                .</h2>
+            </h2>
             <p>VersaFill provide high-quality fuel for your vehicles with hassle-free booking and doorstep delivery</p>
             <button>Learn More</button>
         </div>
@@ -267,9 +267,8 @@
         </div>
     </section>
     
-    
-    <<section id="about">
-        <div class="image"></div> <!-- This div will hold the image -->
+    <section id="about">
+        <div class="image"></div> 
         <div class="content">
             <div>
                 <h2>About Us</h2>
