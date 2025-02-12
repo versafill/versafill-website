@@ -45,7 +45,7 @@
             justify-content: space-between;
             align-items: center;
             padding:   1rem;
-            background: #004d00;
+            background: rgb(3, 97, 42);
             color: white;
             margin: 0;
         }
@@ -68,6 +68,8 @@
     padding: 0; /* Remove padding */
     background-color: #f4f4f4; /* Light background for outer space */
 }
+
+
 
 .details-container {
     width: 80%; /* Green section in the center */
@@ -96,7 +98,21 @@
     display: flex;
     align-items: center; /* Align text inside the heading */
 }
+.details-container h3 {
+    font-size: 35px;
+    margin-bottom: 10px;
+    height: 50px; /* Ensure all headings have same height */
+    display: flex;
+    align-items: center; /* Align text inside the heading */
+}
 
+.details-container h4 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    height: 50px; /* Ensure all headings have same height */
+    display: flex;
+    align-items: center; /* Align text inside the heading */
+}
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
     #details {
@@ -118,23 +134,102 @@
         font-size: 24px; /* Adjust font size for mobile */
     }
 }
+
+#details1 {
+    display: flex; /* Center the green background */
+    justify-content: center; /* Center the content */
+    height: 400px; /* Fixed height */
+    padding: 0; /* Remove padding */
+    background-color: rgba(221, 221, 221, 0.4); /* Light background for outer space */
+}
+
+
+.details1-container1 {
+    width: 80%; /* Green section in the center */
+    background-color: rgba(221, 221, 221, 0.4);
+    /*background: #ddd;/* Green background */
+    height: 100%; /* Fill the full height */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Three equal grids */
+    align-items: center; /* Center content vertically */
+    text-align: center; /* Center text */
+    color: rgb(2, 2, 2); /* White text */
+    font-family: 'Calibri', sans-serif; /* Font */
+}
+
+.details1-container1 .box {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align to the top */
+    align-items: center; /* Center horizontally */
+}
+
+.details1-container1 h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    height: 50px; /* Ensure all headings have same height */
+    display: flex;
+    align-items: center; /* Align text inside the heading */
+}
+.details1-container1 h3 {
+    font-size: 35px;
+    margin-bottom: 10px;
+    height: 50px; /* Ensure all headings have same height */
+    display: flex;
+    align-items: center; /* Align text inside the heading */
+}
+
+.details1-container1 h4 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    height: 50px; /* Ensure all headings have same height */
+    display: flex;
+    align-items: center; /* Align text inside the heading */
+}
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    #details1 {
+        height: auto; /* Allow flexibility on height for smaller screens */
+        padding: 20px 0; /* Add padding on top and bottom */
+    }
+
+    .details1-container1 {
+        width: 90%; /* Increase width on small screens */
+        grid-template-columns: 1fr; /* Stack items vertically on mobile */
+        padding: 10px; /* Add padding inside the container1 */
+    }
+
+    .details1-container1 .box {
+        padding: 20px; /* Reduced padding on mobile */
+    }
+
+    .details1-container1 h2 {
+        font-size: 24px; /* Adjust font size for mobile */
+    }
+}
+
         /* Hero Section */
         .hero {            text-align: center;
-            background-color: rgba(250, 250, 250, 0.89);
+           /* background-color: rgba(15, 15, 15, 0.966);
             margin: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            color: rgb(5, 5, 5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+            color: rgb(253, 251, 251);
             text-align: center;
             padding: 100px 20px;
         }
 
         .hero-text {
-            max-width: 600px;
+            max-width: 800px;
             padding: 10px ;
             margin: auto;
             line-height: 1.6;
         }
+        .hero h2 {
+    font-size: 35px;
+     */
+}
         
         
 
@@ -147,9 +242,10 @@
     grid-template-columns: 1.2fr 2.8fr; /* Two columns with different sizes */
     grid-gap: 0px; /* No space between columns */
     align-items: center; /* Vertically center content */
-    height: 500px; /* Adjust the height of the section */
+    height: auto; /* Adjust the height of the section */
 }
 #about .image {
+    
     background-image: url('https://static.wixstatic.com/media/ea26fd_431cbb67e404445abaecaf864e89f84d~mv2_d_3198_3997_s_4_2.jpg/v1/fill/w_392,h_768,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea26fd_431cbb67e404445abaecaf864e89f84d~mv2_d_3198_3997_s_4_2.jpg');
     background-size: cover; /* Make sure the image covers the grid cell */
     background-position: center; /* Center the image */
@@ -157,9 +253,43 @@
     height: 100%; /* Make the image fill the column */
      /* Optional: Add rounded corners to the image */
 }
+#about .image2 {
+    
+    background-image: url('https://static.wixstatic.com/media/11062b_50a3aecd4105499abc0ec503381fa5d9~mv2.jpg/v1/fill/w_600,h_399,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_50a3aecd4105499abc0ec503381fa5d9~mv2.jpg');
+    background-size: cover; /* Make sure the image covers the grid cell */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    height: 100%; /* Make the image fill the column */
+     /* Optional: Add rounded corners to the image */
+}
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    /* For both images in the about section */
+    #about .image, #about .image2 {
+        height: 250px; /* Adjust the height for mobile screens */
+        background-attachment: scroll; /* Avoid fixed background issue */
+    }
 
+    .about {
+        grid-template-columns: 1fr; /* Stack the columns vertically on small screens */
+        height: auto;
+        padding: 40px 20px; /* Adjust padding for smaller screens */
+    }
+}
 #about .content {
-    background-color: rgba(0, 0, 0, 0.7); /* Black background with transparency */
+    background-color:  rgb(3, 97, 42); /* Green background /* Black background with transparency */
+    color: white; /* Set text color to white for contrast */
+    padding: 40px; /* Add padding around the text */
+    display: flex;
+    justify-content: left; /* Center the text horizontally */
+    align-items: left; /* Center the text vertically */
+    text-align: left; /* Left-align the text */
+ /* Optional: Add rounded corners to the content box */
+    font-family: 'Calibri', sans-serif; /* Use Calibri font */
+    height: 100%; /* Make the image fill the column */
+}
+#about .content2 {
+    background-color: rgba(7, 7, 7, 0.979); /* Black background with transparency */
     color: white; /* Set text color to white for contrast */
     padding: 40px; /* Add padding around the text */
     display: flex;
@@ -234,7 +364,21 @@
             text-align: center;
             padding: 50px 20px;
             background: #ddd;
+            margin-top: 40px; /* Added margin to avoid overlap */
         }
+        /* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .about {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .contact {
+        padding: 40px 20px;
+        margin-top: 20px; /* Add some margin to separate sections on mobile */
+    }
+}
 
         form {
             max-width: 400px;
@@ -354,7 +498,7 @@
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#">Services</a></li>
+            <li><a href="#details">Services</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -375,8 +519,8 @@
                 <p>Our dedicated customer service team is always available to assist you with any questions or concerns you may have. We strive to provide the highest level of customer satisfaction.</p>
             </div>
             <div class="box">
-                <h2>fuel Products</h2>
-                <p>We offer a wide range of fuel products to meet the needs of our customers. From gasoline to diesel, we have everything you need to keep your vehicles running smoothly.</p>
+                <h2>Fuel Products</h2>
+                <p>We offer a wide range of fuel products to meet the needs of our customers. From gasoline to diesel, we have everything you need to keep your vehicles(Trucks,SUVs,Cars & boats) running smoothly.</p>
             </div>
             <div class="box">
                 <h2>Delivery Services</h2>
@@ -391,9 +535,35 @@
         <div class="image"></div> <!-- This div will hold the image -->
         <div class="content">
             <div>
-                <h2>About Us</h2>
-                <p>VersaFill is a leading force in the fuel industry, dedicated to delivering top-tier fuel solutions with efficiency and convenience. We offer a seamless experience through fleet fueling, on-demand fuel delivery, and detailing, ensuring reliable and high-quality service for businesses and individuals alike. Our anytime, anywhere delivery model guarantees uninterrupted access to fuel, while our commitment to innovation and expansion allows us to continuously grow our service areas, fleet, and technology. At VersaFill, we prioritize customer satisfaction, reliability, and excellence, striving to be your trusted fuel partner for all your fueling needs.</p>
+                <h2>VersaFill in Action</h2>
+                <p>Forget the hassle of detouring to gas stations—we bring the fuel to you. Our reliable, on-site fueling service ensures that your fleet, fuel storage tanks, and individual equipment stay powered without unnecessary downtime.
+
+                    We deliver gasoline, diesel, and other fuel types directly to your location, eliminating inefficiencies and keeping your operations running at peak performance. Whether you manage a large commercial fleet, oversee a construction site, or need fuel for specialized equipment, VersaFill provides a seamless solution tailored to your needs.
+                    
+                    Our on-demand fueling service helps businesses save time, reduce costs, and optimize productivity. With competitive pricing and a variety of fuel options, you get the flexibility to power different vehicle types and machinery without disruption.
+                    
+                    By choosing VersaFill, you eliminate wasted labor hours spent refueling, reduce wear and tear on vehicles from unnecessary travel, and improve operational efficiency. We prioritize reliability, safety, and convenience—ensuring you have fuel exactly when and where you need it.
+                    
+                    From trucking and logistics to construction and agriculture, VersaFill is your trusted fueling partner </p>
             </div>
+        </div>
+
+    </section>
+
+    <section id="about" class="about">
+       <div class="image2"></div> <!-- This div will hold the image -->
+        <div class="content2">
+            <div>
+                <h2>The Extra Costs of Gas Station Visits </h2>
+                <p>"Refueling your fleet at traditional gas stations? It’s not just about the price at the pump—there are hidden costs you might not be aware of. Vehicle wear, maintenance, and servicing are expected, but the true price can be much higher.
+
+                    Taking detours to gas stations wastes valuable work hours, reduces productivity, and adds unnecessary mileage. Over time, these small inefficiencies can really add up. Add in the risks of fuel card fraud (like mileage manipulation, side-fueling, or skimming) and the unpredictability of local fuel price fluctuations, and it’s easy to see how you could be losing thousands annually—all from the seemingly harmless act of refueling.
+                    
+                    VersaFill is here to change the game with on-site, on-demand fuel delivery.
+                    
+                     </p>
+            </div>
+            
         </div>
 
     </section>
@@ -412,6 +582,26 @@
             <p>We understand the importance of fast and reliable fuel delivery.</p>
         </div>
     </section> -->
+
+    <section id="details1">
+        <div class="details1-container1">
+            <div class="box">
+                <h3>52 to 78</h3>
+                <h4>Anual Hours</h4>
+                <p>For each vehicle, the time taken for round trips to the gas station.</p>
+            </div>
+            <div class="box">
+                <h3>$15k</h3>
+                <h4>Unseen Expenses</h4>
+                <p>of refueling 10 vehicles per year the traditional way.</p>
+            </div>
+            <div class="box">
+                <h3>256lbs</h3>
+                <h4>Annual CO2 Emissions </h4>
+                <p>refueling trips to the gas station for 1 diesel vehicle.</p>
+            </div>
+        </div>
+    </section>
     
     <section id="contact" class="section">
         <h2>Order Your Fuel Now!</h2>
@@ -430,6 +620,7 @@
             <button type="submit">Send</button>
         </form>
     </section>
+    
     
     <footer>
         <p>&copy; 2024 VersaFill. All Rights Reserved.</p>
