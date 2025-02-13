@@ -10,6 +10,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
 
         body {
             
@@ -28,6 +29,31 @@
             background-attachment: fixed;
 
         }
+        @keyframes parallax {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 0 100%; /* Move down */
+    }
+    100% {
+        background-position: 0 0; /* Move back up */
+    }
+}
+
+body {
+    animation: parallax 30s ease-in-out infinite; /* 30s duration, ease-in-out for smooth motion */
+    background-image: url('https://static.wixstatic.com/media/ea26fd_cb55ca673b7a44dd8a0e3a155ae2ab08~mv2_d_3840_1780_s_2.png/v1/fill/w_1506,h_919,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea26fd_cb55ca673b7a44dd8a0e3a155ae2ab08~mv2_d_3840_1780_s_2.png');
+    background-size: cover;
+    background-position: 0 0;
+    height: 100vh; /* Ensure the body takes up the full viewport height */
+}
+/* Mobile View */
+@media (max-width: 768px) {
+    body {
+        animation: parallax 20s ease-in-out infinite; /* Faster animation for mobile */
+    }
+}
                 /* Sections */
                 .section {
             padding: 50px;
@@ -287,6 +313,16 @@
     font-size: 35px;
      */
 }
+.hero-text h2, .hero-text p {
+    opacity: 0;
+    animation: fadeIn 2s forwards; /* Fade-in effect */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
         
         
 
@@ -309,6 +345,10 @@
     background-repeat: no-repeat; /* Prevent repeating the image */
     height: 100%; /* Make the image fill the column */
      /* Optional: Add rounded corners to the image */
+     transition: transform 0.5s ease-in-out; 
+}
+#about .image:hover {
+    transform: scale(1.1); /* Zoom in slightly on hover */
 }
 #about .image2 {
     
@@ -317,7 +357,11 @@
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Prevent repeating the image */
     height: 100%; /* Make the image fill the column */
+    transition: transform 0.5s ease-in-out; 
      /* Optional: Add rounded corners to the image */
+}
+#about .image2:hover {
+    transform: scale(1.1); /* Zoom in slightly on hover */
 }
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
@@ -565,7 +609,7 @@
     
     <section class="hero">
         <div class="hero-text">
-            <h2>ORDER FUEL ONLINE AND GET IT DELIVERED TO YOUR TANK</h2>
+            <h2>Skip the Gas Station — We Bring Fuel to You, On Your Schedule.</h2>
             
             <p>VersaFill provides high-quality fuel for your vehicles with hassle-free booking and doorstep delivery.</p>
         
