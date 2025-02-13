@@ -56,13 +56,8 @@
         h2 {
     margin-bottom: 10px; /* Space between title and nav links */
 }
-img {
-    transition: transform 0.3s ease-in-out;
-}
 
-img:hover {
-    transform: scale(1.1);
-}
+
         .nav-links {
             list-style: none;
     padding: 0;
@@ -82,6 +77,32 @@ img:hover {
         }
         .nav-links li a:hover {
     color: #ffcc00; /* Yellow color on hover */
+}
+
+/* Mobile-specific navbar styles */
+@media (max-width: 768px) {
+    /* Target only navbar in mobile view */
+    .navbar {
+        flex-direction: column; /* Stack navbar items vertically on mobile */
+        align-items: center; /* Center navbar content horizontally */
+        padding: 20px 0; /* Add padding to navbar */
+    }
+
+    /* Adjust the navbar links to stack vertically in mobile view */
+    .nav-links {
+        display: flex; 
+        flex-direction: column; /* Stack navbar links vertically */
+        align-items: center; /* Center links horizontally */
+        gap: 10px; /* Adjust the spacing between links */
+    }
+
+    .nav-links li {
+        display: block; /* Make each link behave as a block-level element */
+    }
+
+    .nav-links li a {
+        font-size: 1.2rem; /* Adjust font size for better mobile readability */
+    }
 }
         #details {
     display: flex; /* Center the green background */
