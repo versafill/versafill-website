@@ -64,6 +64,32 @@ body {
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
+        #title {
+    display: flex;
+    align-items: center;  /* Vertically aligns the contents in the center */
+    padding: 10px;  /* Optional: Adjust the padding as needed */
+    background-color:rgb(3, 97, 42);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;  /* Ensures that both the logo and text are aligned vertically */
+    image-rendering: crisp-edges; 
+}
+
+.logo {
+    height: 60px;  /* Set the height of the logo */
+    width: auto;  /* Ensure the logo's aspect ratio remains intact */
+    image-rendering: crisp-edges;
+}
+
+.title-text {
+    margin-left: 10px;  /* Adds some space between the logo and the text */
+    font-size: 24px;  /* You can adjust the font size as per your design */
+    font-weight: bold;  /* Optional: Set the font weight if needed */
+    color: white; 
+}
+
 
         /* Navbar */
         .navbar {
@@ -71,10 +97,10 @@ body {
             justify-content: space-between;
             
             flex-direction: column; /* Stack elements vertically */
-    align-items:  flex-start; /* Center everything horizontally */
+    align-items:  flex-start; /* Center everything horizontally */  
     text-align: center;
-    padding: 10px 0;
-            padding:   1rem;
+    padding: 0.5rem 1rem;
+            
             background: rgb(3, 97, 42);
             color: white;
             margin: 0;
@@ -597,8 +623,14 @@ body {
 
 </head>
 <body>
+
+    <section id="title">
+        <div class="logo-container">
+            <img src="https://versafill.github.io/Image/logo.png" alt="Logo" class="logo">
+            <span class="title-text">VersaFill</span>
+        </div>
+    </section>
     <nav class="navbar">
-        <h2>VersaFill</h2>
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
