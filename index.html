@@ -1,774 +1,832 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>VersaFill</title>
+    <title>VersaFill - Fuel Delivery Revolution</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
 
         body {
-            
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #e9e6e6;
-
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            font-family: 'Poppins', Arial, sans-serif;
+            background-color: #f0f2f5;
             background-image: url('https://static.wixstatic.com/media/ea26fd_cb55ca673b7a44dd8a0e3a155ae2ab08~mv2_d_3840_1780_s_2.png/v1/fill/w_1506,h_919,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea26fd_cb55ca673b7a44dd8a0e3a155ae2ab08~mv2_d_3840_1780_s_2.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-
+            line-height: 1.6;
         }
+
         @keyframes parallax {
-    0% {
-        background-position: 0 0;
-    }
-    50% {
-        background-position: 0 100%; /* Move down */
-    }
-    100% {
-        background-position: 0 0; /* Move back up */
-    }
-}
-
-body {
-    animation: parallax 30s ease-in-out infinite; /* 30s duration, ease-in-out for smooth motion */
-    background-image: url('https://static.wixstatic.com/media/ea26fd_cb55ca673b7a44dd8a0e3a155ae2ab08~mv2_d_3840_1780_s_2.png/v1/fill/w_1506,h_919,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ea26fd_cb55ca673b7a44dd8a0e3a155ae2ab08~mv2_d_3840_1780_s_2.png');
-    background-size: cover;
-    background-position: 0 0;
-    height: 100vh; /* Ensure the body takes up the full viewport height */
-}
-/* Mobile View */
-@media (max-width: 768px) {
-    body {
-        animation: parallax 20s ease-in-out infinite; /* Faster animation for mobile */
-    }
-}
-                /* Sections */
-                .section {
-            padding: 50px;
-            text-align: center;
-            background-color: rgba(250, 250, 250, 0.89);
-            margin: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            0% { background-position: 0 0; }
+            50% { background-position: 0 100%; }
+            100% { background-position: 0 0; }
         }
 
+        body {
+            animation: parallax 30s ease-in-out infinite;
+            min-height: 100vh;
+        }
+
+        @media (max-width: 768px) {
+            body { animation: parallax 20s ease-in-out infinite; }
+        }
+
+        /* Enhanced Section Styling */
+        .section {
+            padding: 60px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 30px auto;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Title Section */
         #title {
-    display: flex;
-    align-items: center;  /* Vertically aligns the contents in the center */
-    padding: 10px;  /* Optional: Adjust the padding as needed */
-    background-color:rgb(3, 97, 42);
-}
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background: #03612A;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1000;
+        }
 
-.logo-container {
-    display: flex;
-    align-items: center;  /* Ensures that both the logo and text are aligned vertically */
-    image-rendering: crisp-edges; 
-}
+        .logo-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1001;
+        }
 
-.logo {
-    height: 60px;  /* Set the height of the logo */
-    width: auto;  /* Ensure the logo's aspect ratio remains intact */
-    image-rendering: crisp-edges;
-}
+        .logo {
+            height: 70px;
+            transition: transform 0.3s ease;
+        }
 
-.title-text {
-    margin-left: 10px;  /* Adds some space between the logo and the text */
-    font-size: 24px;  /* You can adjust the font size as per your design */
-    font-weight: bold;  /* Optional: Set the font weight if needed */
-    color: white; 
-}
+        .logo:hover {
+            transform: scale(1.1);
+        }
 
+        .title-text {
+            margin-left: 15px;
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Hamburger Button */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 1002;
+        }
 
         /* Navbar */
         .navbar {
+            background: #03612A;
+            padding: 0;
             display: flex;
-            justify-content: space-between;
-            
-            flex-direction: column; /* Stack elements vertically */
-    align-items:  flex-start; /* Center everything horizontally */  
-    text-align: center;
-    padding: 0.5rem 1rem;
-            
-            background: rgb(3, 97, 42);
-            color: white;
-            margin: 0;
+            justify-content: flex-end;
         }
-        h2 {
-    margin-bottom: 10px; /* Space between title and nav links */
-}
-
 
         .nav-links {
+            display: flex;
+            gap: 30px;
             list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; /* Keep links in one row */
-    gap: 20px; /* Adjust spacing b*/
         }
-    
-        .nav-links li {
-    display: inline-block;
-}
 
         .nav-links li a {
-            text-decoration: none;
             color: white;
-            transition: color 0.3s ease-in-out;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
         }
+
         .nav-links li a:hover {
-    color: #ffcc00; /* Yellow color on hover */
-}
+            background: rgba(238, 234, 234, 0.2);
+            color: #ffeb3b;
+            transform: translateY(-2px);
+        }
 
-/* Mobile-specific navbar styles */
-@media (max-width: 768px) {
-    /* Target only navbar in mobile view */
-    .navbar {
-        flex-direction: column; /* Stack navbar items vertically on mobile */
-        align-items: center; /* Center navbar content horizontally */
-        padding: 20px 0; /* Add padding to navbar */
-    }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
 
-    /* Adjust the navbar links to stack vertically in mobile view */
-    .nav-links {
-        display: flex; 
-        flex-direction: column; /* Stack navbar links vertically */
-        align-items: center; /* Center links horizontally */
-        gap: 10px; /* Adjust the spacing between links */
-    }
+            .logo-container {
+                margin-left: 50px;
+            }
 
-    .nav-links li {
-        display: block; /* Make each link behave as a block-level element */
-    }
+            .navbar {
+                justify-content: flex-start;
+                width: 100%;
+            }
 
-    .nav-links li a {
-        font-size: 1.2rem; /* Adjust font size for better mobile readability */
-    }
-}
-        #details {
-    display: flex; /* Center the green background */
-    justify-content: center; /* Center the content */
-    height: 400px; /* Fixed height */
-    padding: 0; /* Remove padding */
-    background-color:rgba(2, 2, 2, 0.4); /* Light background for outer space */
-}
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #03612A;
+                padding: 20px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                z-index: 999;
+            }
 
+            .nav-links.active {
+                display: flex;
+            }
 
-
-.details-container {
-    width: 80%; /* Green section in the center */
-    background-color: rgb(3, 97, 42); /* Green background */
-    height: 80%; /* Fill the full height */
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Three equal grids */
-    align-items: center; /* Center content vertically */
-    text-align: center; /* Center text */
-    color: white; /* White text */
-    font-family: 'Calibri', sans-serif; /* Font */
-}
-
-.details-container .box {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align to the top */
-    align-items: center; /* Center horizontally */
-}
-
-.details-container h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-    height: 50px; /* Ensure all headings have same height */
-    display: flex;
-    align-items: center; /* Align text inside the heading */
-}
-.details-container h3 {
-    font-size: 35px;
-    margin-bottom: 10px;
-    height: 50px; /* Ensure all headings have same height */
-    display: flex;
-    align-items: center; /* Align text inside the heading */
-}
-
-.details-container h4 {
-    font-size: 15px;
-    margin-bottom: 10px;
-    height: 50px; /* Ensure all headings have same height */
-    display: flex;
-    align-items: center; /* Align text inside the heading */
-}
-/* Responsive Design for Mobile */
-@media (max-width: 768px) {
-    #details {
-        height: auto; /* Allow flexibility on height for smaller screens */
-        padding: 20px 0; /* Add padding on top and bottom */
-    }
-
-    .details-container {
-        width: 90%; /* Increase width on small screens */
-        grid-template-columns: 1fr; /* Stack items vertically on mobile */
-        padding: 10px; /* Add padding inside the container */
-    }
-
-    .details-container .box {
-        padding: 20px; /* Reduced padding on mobile */
-    }
-
-    .details-container h2 {
-        font-size: 24px; /* Adjust font size for mobile */
-    }
-}
-
-#details1 {
-    display: flex; /* Center the green background */
-    justify-content: center; /* Center the content */
-    height: 400px; /* Fixed height */
-    padding: 0; /* Remove padding */
-    background-color: rgba(2, 2, 2, 0.4); /* Light background for outer space */
-}
-
-
-.details1-container1 {
-    width: 90%; /* Green section in the center */
-    background-color:rgb(247, 247, 247,0.9);;
-    /*background: #ddd;/* Green background */
-    height: 80%; /* Fill the full height */
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Three equal grids */
-    align-items: center; /* Center content vertically */
-    text-align: center; /* Center text */
-    color: rgb(7, 7, 7); /* White text */
-    font-family: 'Calibri', sans-serif; /* Font */
-}
-
-.details1-container1 .box {
-    padding: 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align to the top */
-    align-items: center; /* Center horizontally */
-}
-
-.details1-container1 h2 {
-    font-size: 28px;
-    margin-bottom: 10px;
-    height: 50px; /* Ensure all headings have same height */
-    display: flex;
-    align-items: center; /* Align text inside the heading */
-    
-}
-.details1-container1 h3 {
-    font-size: 35px;
-    margin-bottom: 10px;
-    height: 50px; /* Ensure all headings have same height */
-    display: flex;
-    color:  rgb(3, 97, 42);
-    align-items: center; /* Align text inside the heading */
-    
-}
-
-.details1-container1 h4 {
-    font-size: 15px;
-    margin-bottom: 10px;
-    height: 50px; /* Ensure all headings have same height */
-    display: flex;
-    color:  rgb(13, 14, 13);
-    /*color: rgb(5, 194, 5);
-    align-items: center; /* Align text inside the heading */
-}
-/* Responsive Design for Mobile */
-@media (max-width: 768px) {
-    #details1 {
-        height: auto; /* Allow flexibility on height for smaller screens */
-        padding: 20px 0; /* Add padding on top and bottom */
-    }
-
-    .details1-container1 {
-        width: 90%; /* Increase width on small screens */
-        grid-template-columns: 1fr; /* Stack items vertically on mobile */
-        padding: 10px; /* Add padding inside the container1 */
-    }
-
-    .details1-container1 .box {
-        padding: 20px; /* Reduced padding on mobile */
-    }
-
-    .details1-container1 h2 {
-        font-size: 24px; /* Adjust font size for mobile */
-    }
-}
-
-.details-container .box, .details1-container1 .box {
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.details-container .box:hover, .details1-container1 .box:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    transform: scale(1.02);
-}
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+        }
 
         /* Hero Section */
-        .hero {            text-align: center;
-            background-color: rgba(2, 2, 2, 0.4);;
-            margin: 0px;
-            /*border-radius: 8px;
-            /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
-            color: rgb(253, 251, 251);
+        .hero {
+            padding: 120px 20px;
+            background: rgba(0, 7, 3, .4);
+            color: white;
             text-align: center;
-            padding: 100px 20px;
+            animation: fadeInUp 1s ease-out;
         }
 
-        .hero-text {
-            max-width: 800px;
-            padding: 10px ;
-            margin: auto;
-            line-height: 1.6;
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .hero h2 {
-    font-size: 35px;
-     */
-}
-.hero-text h2, .hero-text p {
-    opacity: 0;
-    animation: fadeIn 2s forwards; /* Fade-in effect */
-}
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
-}
-        
-        
+        .hero-text h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-text p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            animation: bounceIn 1s ease-out forwards;
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            60% { opacity: 0.9; transform: translateY(-5px); }
+            100% { opacity: 0.9; transform: translateY(0); }
+        }
+
+        /* Details Section */
+        #details {
+            display: flex;
+            justify-content: center;
+            padding: 40px 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .details-container {
+            width: 90%;
+            background: #03612A;
+            border-radius: 25px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .details-container .box {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .details-container .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 235, 59, 0.5);
+        }
+
+        .details-container h2, .details-container p {
+            position: relative;
+            left: -100%;
+            animation: slideIn 1s ease forwards;
+            animation-delay: calc(0.2s * var(--order));
+        }
+
+        .details-container .box:nth-child(1) { --order: 1; }
+        .details-container .box:nth-child(2) { --order: 2; }
+        .details-container .box:nth-child(3) { --order: 3; }
+
+        @keyframes slideIn {
+            to { left: 0; }
+        }
+
+        .details-container h2 {
+            font-size: 26px;
+            color: #ffeb3b;
+            margin-bottom: 15px;
+        }
+
+        .details-container p {
+            color: white;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .details-container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
+
+        /* Stats Section */
+        #details1 {
+            display: flex;
+            justify-content: center;
+            padding: 40px 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .details1-container1 {
+            width: 90%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .details1-container1 .box {
+            padding: 30px;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .details1-container1 .box:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+
+        .details1-container1 h3 {
+            font-size: 36px;
+            color: #03612A;
+            margin-bottom: 10px;
+        }
+
+        .details1-container1 h4 {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .details1-container1 p {
+            color: #333;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .details1-container1 {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
 
         /* About Section */
         .about {
-    background-color:  rgba(253, 253, 253, 0.89);
-    padding: 60px 20px;
-    text-align: center;
-    display: grid; /* Enable grid layout */
-    grid-template-columns: 1.2fr 2.8fr; /* Two columns with different sizes */
-    grid-gap: 0px; /* No space between columns */
-    align-items: center; /* Vertically center content */
-    height: auto; /* Adjust the height of the section */
-}
-#about .image {
-    
-    background-image: url('https://versafill.github.io/Image/map.jpg');
-    background-size: cover; /* Make sure the image covers the grid cell */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent repeating the image */
-    height: 100%; /* Make the image fill the column */
-     /* Optional: Add rounded corners to the image */
-     transition: transform 0.5s ease-in-out; 
-}
-#about .image:hover {
-    transform: scale(1.1); /* Zoom in slightly on hover */
-}
-#about .image2 {
-    
-    background-image: url('https://static.wixstatic.com/media/11062b_50a3aecd4105499abc0ec503381fa5d9~mv2.jpg/v1/fill/w_600,h_399,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_50a3aecd4105499abc0ec503381fa5d9~mv2.jpg');
-    background-size: cover; /* Make sure the image covers the grid cell */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent repeating the image */
-    height: 100%; /* Make the image fill the column */
-    transition: transform 0.5s ease-in-out; 
-     /* Optional: Add rounded corners to the image */
-}
-#about .image2:hover {
-    transform: scale(1.1); /* Zoom in slightly on hover */
-}
-/* Responsive Design for Mobile */
-@media (max-width: 768px) {
-    /* For both images in the about section */
-    #about .image, #about .image2 {
-        height: 250px; /* Adjust the height for mobile screens */
-        background-attachment: scroll; /* Avoid fixed background issue */
-    }
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: 1.2fr 2.8fr;
+            margin: 30px auto;
+            max-width: 1200px;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            margin-bottom: 80px;
+        }
 
-    .about {
-        grid-template-columns: 1fr; /* Stack the columns vertically on small screens */
-        height: auto;
-        padding: 40px 20px; /* Adjust padding for smaller screens */
-    }
-}
-#about .content {
-    background-color:  rgb(3, 97, 42); /* Green background /* Black background with transparency */
-    color: white; /* Set text color to white for contrast */
-    padding: 40px; /* Add padding around the text */
-    display: flex;
-    justify-content: left; /* Center the text horizontally */
-    align-items: left; /* Center the text vertically */
-    text-align: left; /* Left-align the text */
- /* Optional: Add rounded corners to the content box */
-    font-family: 'Calibri', sans-serif; /* Use Calibri font */
-    height: 100%; /* Make the image fill the column */
-}
-#about .content2 {
-    background-color: rgba(7, 7, 7, 0.979); /* Black background with transparency */
-    color: white; /* Set text color to white for contrast */
-    padding: 40px; /* Add padding around the text */
-    display: flex;
-    justify-content: left; /* Center the text horizontally */
-    align-items: left; /* Center the text vertically */
-    text-align: left; /* Left-align the text */
- /* Optional: Add rounded corners to the content box */
-    font-family: 'Calibri', sans-serif; /* Use Calibri font */
-    height: 100%; /* Make the image fill the column */
-}
+        .about.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-#about h2, #about p {
-    margin: 0; /* Remove any default margins */
-}
+        .about .image, .about .image2 {
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px 0 0 20px;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+        }
 
+        .about.visible .image, .about.visible .image2 {
+            opacity: 1;
+            transform: scale(1);
+        }
 
-/* Responsive Design for Mobile */
-@media (max-width: 768px) {
-    .about {
-        grid-template-columns: 1fr; /* Stack the content vertically on small screens */
-        height: auto; /* Allow flexibility on height for smaller screens */
-        padding: 40px 20px; /* Reduce padding for smaller screens */
-    }
-}
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        .about .image:hover, .about .image2:hover {
+            transform: scale(1.05);
+        }
+
+        .about .content, .about .content2 {
+            background: #03612A;
+            color: white;
+            padding: 40px;
+            border-radius: 0 20px 20px 0;
+            position: relative;
+            top: 50px;
+            opacity: 0;
+            transition: top 0.5s ease, opacity 0.5s ease;
+        }
+
+        .about .content2 {
+            background: #1a1a1a;
+        }
+
+        .about.visible .content, .about.visible .content2 {
+            top: 0;
+            opacity: 1;
+        }
+
         .about h2 {
-            font-size: 2rem;
+            font-size: 32px;
             margin-bottom: 20px;
-            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
         }
 
-        .about p {
-            font-size: .8rem;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-            font-family: 'Montserrat', sans-serif;
+        @media (max-width: 768px) {
+            .about {
+                grid-template-columns: 1fr;
+                padding: 30px;
+            }
+            .about .image, .about .image2 {
+                height: 300px;
+                border-radius: 20px 20px 0 0;
+            }
+            .about .content, .about .content2 {
+                border-radius: 0 0 20px 20px;
+            }
         }
 
-        /* Services Section */
-      /* Services Section */
-.services {
-    display: flex;
-    justify-content: space-around;
-    padding: 50px 20px;
-    flex-wrap: wrap;
-}
-
-.service-card {
-    flex: 1;
-    min-width: 280px;
-    background: #f4f4f4;
-    padding: 20px;
-    margin: 10px;
-    text-align: center;
-    
-}
-
-/* Responsive Design for Mobile */
-@media (max-width: 768px) {
-    .services {
-        flex-direction: column; /* Stack the service cards vertically */
-        align-items: center; /* Center the cards on small screens */
-        padding: 20px 10px; /* Adjust padding */
-    }
-
-    .service-card {
-        width: 100%; /* Ensure cards take full width on small screens */
-        margin-bottom: 20px; /* Add space between the cards */
-        padding: 15px; /* Reduce padding to save space */
-    }
-}
         /* Contact Section */
         .contact {
-            text-align: center;
-            padding: 50px 20px;
-            background: #ddd;
-            margin-top: 40px; /* Added margin to avoid overlap */
+            background: #f8f9fa;
+            padding: 60px 20px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
+            max-width: 800px;
+            margin-bottom: 80px;
         }
-        /* Responsive Design for Mobile */
-@media (max-width: 768px) {
-    .about {
-        grid-template-columns: 1fr;
-        height: auto;
-        padding: 40px 20px;
-    }
 
-    .contact {
-        padding: 40px 20px;
-        margin-top: 20px; /* Add some margin to separate sections on mobile */
-    }
-}
+        .contact h2 {
+            color: #03612A;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
 
         form {
-            max-width: 400px;
-            margin: auto;
             display: flex;
             flex-direction: column;
+            gap: 25px;
         }
 
         input, textarea {
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 4px 15px rgba(3, 97, 42, 0.4);
+            transform: scale(1.02);
         }
 
         button {
-            background-color: #047425;
+            background: #03612A;
             color: white;
-            padding: 10px;
+            padding: 15px;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
+            font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            background: rgba(255, 235, 59, 0.5);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+        }
+
+        button:hover::after {
+            width: 200%;
+            height: 200%;
         }
 
         button:hover {
-    background-color: #03581a; /* Darker green */
-    transform: scale(1.05); /* Slightly increase size */
-}
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(3, 97, 42, 0.4);
+        }
 
-        /* Responsive Design */
+        /* New Company Footer Section (Interactive) */
+        .company-footer {
+            background: #03612A;
+            color: white;
+            padding: 20px 0;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .company-footer:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .company-footer .column {
+            flex: 1;
+            padding: 0 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .company-footer .column:hover {
+            transform: scale(1.05);
+        }
+
+        .company-footer h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            background: linear-gradient(45deg, #ffeb3b, #fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .company-footer p, .company-footer a {
+            font-size: 14px;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 5px;
+            display: block;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .company-footer a:hover {
+            color: #ffeb3b;
+            transform: translateX(5px);
+        }
+
+        .company-footer .social {
+            display: flex;
+            gap: 10px;
+            transition: opacity 0.3s ease;
+        }
+
+        .company-footer .social:hover {
+            opacity: 0.8;
+        }
+
+        .company-footer .social a {
+            font-size: 20px;
+            color: white;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .company-footer .social a:hover {
+            color: #ffeb3b;
+            transform: scale(1.2);
+        }
+
         @media (max-width: 768px) {
-            .navbar {
+            .company-footer {
                 flex-direction: column;
                 text-align: center;
+                padding: 20px;
+                border-radius: 15px;
             }
-            
-            .nav-links {
-                flex-direction: column;
+
+            .company-footer .column {
                 padding: 10px 0;
+                text-align: center;
+                flex: auto;
+                width: 100%; /* Ensure full width on mobile */
             }
 
-            .services {
-                flex-direction: column;
-                align-items: center;
+            .company-footer .column:hover {
+                transform: scale(1.02);
             }
 
-            .hero {
-                padding: 50px 20px;
+            .company-footer .social {
+                justify-content: center;
+                margin-top: 10px;
             }
 
-            .about {
-                padding: 40px 20px;
+            .company-footer p {
+                font-size: 12px;
             }
+
+            .company-footer a {
+                font-size: 12px;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 1;
         }
     </style>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const form = document.querySelector("#contactForm");
-        
-        form.addEventListener("submit", async function(event) {
-            event.preventDefault(); // Prevent default form submission
-            
-            const formData = new FormData(form);
-            
-            // Sending form data to Formspree
-            const response = await fetch("https://formspree.io/f/mkgovrgz", {
-                method: "POST",
-                body: formData,
-                headers: {
-                    "Accept": "application/json"
-                }
-            });
-
-            if (response.ok) {
-                alert("Thank you! Your message has been sent.");
-                form.reset(); // Clear form fields after submission
-            } else {
-                alert("Oops! Something went wrong. Please try again.");
-            }
-        });
-    });
-</script>
 </head>
 <body>
-</style>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Alert button functionality
-        function showAlert() {
-            alert("VersaFill provide high-quality fuel for your vehicles with hassle-free booking and doorstep delivery.");
-        }
-
-        // Attach event listener to the button
-        const learnMoreButton = document.querySelector("button");
-        if (learnMoreButton) {
-            learnMoreButton.addEventListener("click", showAlert);
-        }
-
-        // Form submission handling
-        const contactForm = document.querySelector("form");
-        if (contactForm) {
-            contactForm.addEventListener("submit", function(event) {
-                event.preventDefault();
-                alert("Thank you for contacting us! We will get back to you soon.");
-                contactForm.reset();
-            });
-        }
-    });
-</script>
-</head>
-<body>
-
-</head>
-<body>
-
     <section id="title">
+        <button class="hamburger">☰</button>
         <div class="logo-container">
-            <img src="https://versafill.github.io/Image/logo.png" alt="Logo" class="logo">
+            <img src="https://versafill.github.io/Image/logo.png" alt="VersaFill Logo" class="logo">
             <span class="title-text">VersaFill</span>
         </div>
-    </section>
-    <nav class="navbar">
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#details">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <section class="hero">
-        <div class="hero-text">
-            <h2>Skip the Gas Station — We Bring Fuel to You, On Your Schedule.</h2>
-            
-            <p>VersaFill provides high-quality fuel for your vehicles with hassle-free booking and doorstep delivery.</p>
-        
-        </div>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#details">Solutions</a></li>
+                <li><a href="#contact">Get Started</a></li>
+            </ul>
+        </nav>
     </section>
 
-  
+    <section class="hero">
+        <div class="hero-text">
+            <h2 id="hero-title">Skip the Gas Station</h2>
+            <p>VersaFill provides high-quality fuel for your vehicles with hassle-free booking and doorstep delivery.</p>
+        </div>
+    </section>
 
     <section id="details">
         <div class="details-container">
             <div class="box">
-                <h2>Customer Service</h2>
-                <p>Our dedicated customer service team is always available to assist you with any questions or concerns you may have. We strive to provide the highest level of customer satisfaction.</p>
+                <h2>24/7 Support</h2>
+                <p>Our expert team is always ready to fuel your success with round-the-clock assistance and personalized solutions.</p>
             </div>
             <div class="box">
-                <h2>Fuel Products</h2>
-                <p>We offer a wide range of fuel products to meet the needs of our customers. From gasoline to diesel, we have everything you need to keep your vehicles(Trucks,SUVs,Cars & boats) running smoothly.</p>
+                <h2>Premium Fuels</h2>
+                <p>Top-quality gasoline, diesel, and specialty fuels delivered to power your fleet, equipment, and business.</p>
             </div>
             <div class="box">
-                <h2>Delivery Services</h2>
-                <p>At YourTankOurTask, we understand the importance of fast and reliable fuel delivery. That's why we offer tank side delivery services to make sure you never run out of fuel.</p>
+                <h2>Fast Delivery</h2>
+                <p>Rapid, reliable doorstep service ensures you’re always fueled up and ready to go – no delays, no hassle.</p>
             </div>
         </div>
     </section>
 
-      <section id="details1">
+    <section id="details1">
         <div class="details1-container1">
             <div class="box">
-                <h3>52 to 78</h3>
-                <h4>Annual Hours</h4>
-                <p>For each vehicle, the time taken for round trips to the gas station.</p>
+                <h3 data-count="78">0</h3>
+                <h4>Hours Saved</h4>
+                <p>Eliminate gas station trips and reclaim valuable time for every vehicle annually.</p>
             </div>
             <div class="box">
-                <h3>$15k</h3>
-                <h4>Unseen Expenses</h4>
-                <p>Of refueling 10 vehicles per year the traditional way.</p>
+                <h3 data-count="15000">0</h3>
+                <h4>Cost Reduction</h4>
+                <p>Slash hidden expenses of traditional refueling for a fleet of 10 vehicles yearly.</p>
             </div>
             <div class="box">
-                <h3>256lbs</h3>
-                <h4>Annual CO2 Emissions </h4>
-                <p>Refueling trips to the gas station for 1 diesel vehicle.</p>
+                <h3 data-count="256lbs">0</h3>
+                <h4>CO2 Cut</h4>
+                <p>Reduce emissions per diesel vehicle by skipping unnecessary fuel runs.</p>
             </div>
         </div>
     </section>
 
-    
-    <!-- About Section -->
     <section id="about" class="about">
-        <div class="image"></div> <!-- This div will hold the image -->
+        <div class="image" style="background-image: url('https://versafill.github.io/Image/map.jpg');"></div>
         <div class="content">
-            <div>
-                <h2>VersaFill in Action</h2>
-                <p>Forget the hassle of detouring to gas stations—we bring the fuel to you. Our reliable, on-site fueling service ensures that your fleet, fuel storage tanks, and individual equipment stay powered without unnecessary downtime.
-
-                    We deliver gasoline, diesel, and other fuel types directly to your location, eliminating inefficiencies and keeping your operations running at peak performance. Whether you manage a large commercial fleet, oversee a construction site, or need fuel for specialized equipment, VersaFill provides a seamless solution tailored to your needs.
-                    
-                    Our on-demand fueling service helps businesses save time, reduce costs, and optimize productivity. With competitive pricing and a variety of fuel options, you get the flexibility to power different vehicle types and machinery without disruption.
-                    
-                    By choosing VersaFill, you eliminate wasted labor hours spent refueling, reduce wear and tear on vehicles from unnecessary travel, and improve operational efficiency. We prioritize reliability, safety, and convenience—ensuring you have fuel exactly when and where you need it.
-                    
-                    From trucking and logistics to construction and agriculture, VersaFill is your trusted fueling partner </p>
-            </div>
+            <h2>Unleash Efficiency with VersaFill</h2>
+            <p>Say goodbye to fuel-related downtime and hello to seamless operations. VersaFill delivers premium fuel directly to your doorstep – whether it’s your fleet, construction site, or heavy machinery. We’re more than a service; we’re your fuel efficiency partner.<br><br>
+            Boost productivity, reduce operational costs, and simplify logistics with our on-demand delivery. From gasoline to diesel, we’ve got every fuel type covered, ensuring your business stays powered up and ahead of the curve.<br><br>
+            Perfect for transportation, construction, agriculture, and more – VersaFill transforms fueling into a competitive advantage.</p>
         </div>
-
     </section>
 
     <section id="about" class="about">
-       <div class="image2"></div> <!-- This div will hold the image -->
+        <div class="image2" style="background-image: url('https://static.wixstatic.com/media/11062b_50a3aecd4105499abc0ec503381fa5d9~mv2.jpg/v1/fill/w_600,h_399,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_50a3aecd4105499abc0ec503381fa5d9~mv2.jpg');"></div>
         <div class="content2">
-            <div>
-                <h2>The Extra Costs of Gas Station Visits </h2>
-                <p>"Refueling your fleet at traditional gas stations? It’s not just about the price at the pump—there are hidden costs you might not be aware of. Vehicle wear, maintenance, and servicing are expected, but the true price can be much higher.
-
-                    Taking detours to gas stations wastes valuable work hours, reduces productivity, and adds unnecessary mileage. Over time, these small inefficiencies can really add up. Add in the risks of fuel card fraud (like mileage manipulation, side-fueling, or skimming) and the unpredictability of local fuel price fluctuations, and it’s easy to see how you could be losing thousands annually—all from the seemingly harmless act of refueling.
-                    
-                    VersaFill is here to change the game with on-site, on-demand fuel delivery.
-                    
-                     </p>
-            </div>
-            
+            <h2>Escape the Hidden Costs</h2>
+            <p>Traditional gas station runs are silently draining your profits. Beyond fuel prices, you’re losing time, adding mileage, and risking fraud – all adding up to thousands in unseen expenses.<br><br>
+            VersaFill eliminates these burdens with on-site delivery that saves hours, protects your budget, and stabilizes costs. No more detours, no more surprises – just efficient, reliable fueling that puts you back in control.</p>
         </div>
-
     </section>
-    
-    <!-- <section class="services">
-        <div class="service-card">
-            <h3>Customer Service</h3>
-            <p>Our dedicated customer service team is always available to assist you with any questions.</p>
-        </div>
-        <div class="service-card">
-            <h3>Fuel Products</h3>
-            <p>We offer a wide range of fuel products to meet the diverse needs of our customers.</p>
-        </div>
-        <div class="service-card">
-            <h3>Delivery Services</h3>
-            <p>We understand the importance of fast and reliable fuel delivery.</p>
-        </div>
-    </section> -->
 
-    
-    
-    <section id="contact" class="section">
-        <h2>Order Your Fuel Now!</h2>
-        <p>Give us a call at <strong>123-456-7890</strong> or leave a message:</p>
-        
+    <section id="contact" class="contact">
+        <h2>Fuel Up Today!</h2>
+        <p>Call us at <strong>123-456-7890</strong> or request a quote below:</p>
         <form id="contactForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            
-            <button type="submit">Send</button>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Tell us your fuel needs" required></textarea>
+            <button type="submit">Get a Quote</button>
         </form>
     </section>
-    
-    
+
+    <!-- New Company Footer Section (Interactive) -->
+    <section class="company-footer">
+        <div class="column">
+            <h3>VersaFill®</h3>
+            <p>We believe the power that drives your operations should be seamless and eco-friendly, delivered right to your location. VersaFill’s Optimal Fuel Solution benefits you, your community, and the environment.</p>
+        </div>
+        <div class="column">
+            <h3>About VersaFill</h3>
+            <a href="#about">Our Team</a>
+            <a href="#">Careers at VersaFill</a>
+            <a href="#">Archived Research</a>
+            <a href="#">FAQs</a>
+        </div>
+        <div class="column">
+            <h3>Who We Serve</h3>
+            <a href="#">Industries</a>
+            <a href="#">Locations</a>
+        </div>
+        <div class="column">
+            <h3>Social</h3>
+            <div class="social">
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="column">
+            <h3>Contact Us</h3>
+            <a href="#contact">Get in Touch</a>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2024 VersaFill. All Rights Reserved.</p>
+        <p>© 2025 VersaFill – Powering Your Future. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Hamburger Menu
+            const hamburger = document.querySelector(".hamburger");
+            const navLinks = document.querySelector(".nav-links");
+
+            hamburger.addEventListener("click", function() {
+                navLinks.classList.toggle("active");
+            });
+
+            // Hero Typing Animation
+            const heroTitle = document.getElementById("hero-title");
+            const text = "Skip the Gas Station";
+            let index = 0;
+            function type() {
+                if (index < text.length) {
+                    heroTitle.textContent = text.slice(0, index + 1);
+                    index++;
+                    setTimeout(type, 100);
+                }
+            }
+            type();
+
+            // Count-up animation for #details1
+            const statsSection = document.querySelector("#details1");
+            const counters = document.querySelectorAll(".details1-container1 h3");
+            let hasAnimatedStats = false;
+
+            const statsObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && !hasAnimatedStats) {
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute("data-count"));
+                        let count = 0;
+                        const duration = 2000;
+                        const increment = target / (duration / 16);
+
+                        const updateCount = () => {
+                            count += increment;
+                            if (count >= target) {
+                                counter.textContent = counter.getAttribute("data-count") === "15000" ? "$15K+" : counter.getAttribute("data-count");
+                            } else {
+                                counter.textContent = Math.ceil(count);
+                                requestAnimationFrame(updateCount);
+                            }
+                        };
+                        requestAnimationFrame(updateCount);
+                    });
+                    hasAnimatedStats = true;
+                }
+            }, { threshold: 0.5 });
+
+            statsObserver.observe(statsSection);
+
+            // About Section Scroll Animation
+            const aboutSections = document.querySelectorAll(".about");
+            const aboutObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        aboutObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            aboutSections.forEach(section => {
+                section.style.transform = "translateY(50px)";
+                aboutObserver.observe(section);
+            });
+
+            // Form Submission
+            const form = document.querySelector("#contactForm");
+            form.addEventListener("submit", async function(event) {
+                event.preventDefault();
+                const formData = new FormData(form);
+                const response = await fetch("https://formspree.io/f/mkgovrgz", {
+                    method: "POST",
+                    body: formData,
+                    headers: { "Accept": "application/json" }
+                });
+                if (response.ok) {
+                    alert("Success! We’ll fuel your needs soon.");
+                    form.reset();
+                } else {
+                    alert("Oops! Let’s try that again.");
+                }
+            });
+
+            // Add Font Awesome for social icons
+            const style = document.createElement('link');
+            style.rel = 'stylesheet';
+            style.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css';
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
 </html>
